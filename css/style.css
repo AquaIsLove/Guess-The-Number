@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper-app{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.app-screen{
+    padding: 5px;
+    height: 500px;
+    width: 400px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end
+}
+
+.bubble{
+    font-size: 15px;
+    margin-top: 8px;
+}
+.bubble-left{
+    text-align: left;
+}
+.bubble-right{
+    text-align: right;
+}
+.bubble__text{
+    border-radius: 10px;
+    padding: 3px;
+}
+.bubble__text-quess{
+    background-color: rgb(165, 87, 238);
+
+}
+.bubble__text-answer{
+    background-color: rgb(143, 143, 143);
+
+}
+
+
+/* .message__bubble{
+    display: inline;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 15px;
+}
+.message__bubble-answer{
+    background-color: rgb(165, 87, 238);
+}
+.message__bubble-guess{
+    background-color: rgb(143, 143, 143);
+
+} */
+
+
+.app-menu{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.app-menu__input{
+    text-align: center;
+    border: 2px solid rgb(122, 122, 122);
+    outline: 0;
+    outline-offset: 0;
+}
+.app-menu__input:hover{
+    border: 2px solid black;
+
+}
+.app-menu__btn{
+    border: none;
+    background-color: rgb(153, 153, 152);
+    border: 2px solid  rgb(153, 153, 152);
+    border-radius: 10px;
+    padding: 3px;
+    cursor: pointer;
+}
+.app-menu__btn:hover{
+    border: 2px solid  black;
+
+}
+
