@@ -5,7 +5,7 @@ export default class GuessNumber{
         this.inputGuess = this.app.querySelector('#input-guess');
         this.sendBtn = this.app.querySelector('#button-send');
         this.counter = 0;
-        this.trueUnswer = 8;
+        this.trueUnswer = Math.floor(Math.random() * 10) + 1;
 
 
 
@@ -13,46 +13,73 @@ export default class GuessNumber{
             this.clickOnBtn();
         });
 
-        this.init();
     }
 
     init(){
-        const block = this.getGuess("Привет, я загадал число от 1 до 10. Попробуй угадать");
-        this.screen.appendChild(block);
+        this.getGuess("Привет");
+        
+        this.getGuess("Я загадал число от 1 до 10");
+        this.getGuess("Попробуй угадать");
+
+    }
+
+    // clear(){
+    //     const bubble = this.screen.querySelector('#bubble');
+    //     this.screen.removeChild(bubble);
+    // }
+
+
+    finally(){
+        this.getGuess(`Ты победил это число: ${this.trueUnswer}`);
+        this.getGuess('А сейчас новое от 1 до 10');
+        this.trueUnswer = Math.floor(Math.random() * 10) + 1;
+    }
+
+    numberCheck(number){
+        if (number == this.trueUnswer){
+            
+            this.finally()
+        } else{
+            if(number < this.trueUnswer){
+            this.getGuess('Моё число больше');
+            } else{
+            this.getGuess('Моё число меньше');
+            }
+        }
     }
 
     clickOnBtn(){
-        console.log(this.inputGuess)
-        unswer = this.inputGuess.value;
-        console.log(unswer);
+        let unswer = this.inputGuess.value;
+        this.getAnswer(unswer+'?');
+        if (isNaN(unswer)) {
+            this.getGuess('Это не число');
+        } else{
+            unswer = +unswer;
+            this.numberCheck(unswer);
+        }
+
+
     }
 
     getGuess(text){
         const block = document.createElement('div');
+        
+        // block.dataset.bubbleId = this.counter;
+        // this.counter +=1;
+        
         block.classList.add('bubble', 'bubble-left');
-        block.innerHTML = `<span class='bubble__text bubble__text-quess'>${text}</span> `
-        return block;
+        block.innerHTML = `<span class='bubble__text bubble__text-quess' id='bubble'>${text}</span> `
+        this.screen.appendChild(block);
     }
     getAnswer(text){
         const block = document.createElement('div');
+
+        // block.dataset.bubbleId = this.counter;
+        // this.counter +=1;
+
         block.classList.add('bubble', 'bubble-right');
         block.innerHTML = `<span class='bubble__text bubble__text-answer'>${text}</span> `
-        return block;
+        this.screen.appendChild(block);
     }
 
-
-    // sendGuess(){
-    //     const block = document.createElement('div');
-    //     block.classList.add('bubble', 'guess');
-    //     this.counter +=1;
-
-    //     block.dataset.bubbleId = this.counter;
-    //     block.innerHTML = '<div><p>Hello</p></div>';
-    //     block.addEventListener('click', ()=>{console.log('hello')});
-
-    //     this.screen.appendChild(block);
-    //     // this.screen.prepend(block);
-    //     console.log(block);
-    // }
-    
 }
