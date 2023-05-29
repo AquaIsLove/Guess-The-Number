@@ -23,10 +23,6 @@ export default class GuessNumber{
 
     }
 
-    // clear(){
-    //     const bubble = this.screen.querySelector('#bubble');
-    //     this.screen.removeChild(bubble);
-    // }
 
 
     finally(){
@@ -63,20 +59,12 @@ export default class GuessNumber{
 
     getGuess(text){
         const block = document.createElement('div');
-        
-        // block.dataset.bubbleId = this.counter;
-        // this.counter +=1;
-        
         block.classList.add('bubble', 'bubble-left');
         block.innerHTML = `<span class='bubble__text bubble__text-quess' id='bubble'>${text}</span> `
         this.screen.appendChild(block);
     }
     getAnswer(text){
         const block = document.createElement('div');
-
-        // block.dataset.bubbleId = this.counter;
-        // this.counter +=1;
-
         block.classList.add('bubble', 'bubble-right');
         block.innerHTML = `<span class='bubble__text bubble__text-answer'>${text}</span> `
         this.screen.appendChild(block);
