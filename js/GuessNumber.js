@@ -17,17 +17,13 @@ export default class GuessNumber{
 
     init(){
         this.getGuess("Привет");
-        
         this.getGuess("Я загадал число от 1 до 10");
         this.getGuess("Попробуй угадать");
-
     }
-
-
 
     finally(){
         this.getGuess(`Ты победил это число: ${this.trueUnswer}`);
-        this.getGuess('А сейчас новое от 1 до 10');
+        this.getGuess('Давай теперь новое от 1 до 10');
         this.trueUnswer = Math.floor(Math.random() * 10) + 1;
     }
 
@@ -44,19 +40,6 @@ export default class GuessNumber{
         }
     }
 
-    clickOnBtn(){
-        let unswer = this.inputGuess.value;
-        this.getAnswer(unswer+'?');
-        if (isNaN(unswer)) {
-            this.getGuess('Это не число');
-        } else{
-            unswer = +unswer;
-            this.numberCheck(unswer);
-        }
-
-
-    }
-
     getGuess(text){
         const block = document.createElement('div');
         block.classList.add('bubble', 'bubble-left');
@@ -68,6 +51,40 @@ export default class GuessNumber{
         block.classList.add('bubble', 'bubble-right');
         block.innerHTML = `<span class='bubble__text bubble__text-answer'>${text}</span> `
         this.screen.appendChild(block);
+    }
+
+    lengthChenck(unswer){
+        if (unswer.length > 2){
+            this.getAnswer(`${unswer}`);
+            this.getAnswer('0_0');
+            this.getGuess('Слишком длинное сообщение');
+            this.getGuess('Для нашей игры');
+            return false
+        }
+        if(unswer.length === 0){
+            return false
+        }
+        return unswer;
+    }
+
+
+    clickOnBtn(){
+        let unswer = this.inputGuess.value;
+        
+        unswer = this.lengthChenck(unswer);
+
+    
+        if (unswer == false){
+            return;
+        } 
+
+        this.getAnswer(unswer+'?');
+        if (isNaN(unswer) || unswer.length === 0) {
+            this.getGuess('Это не число');
+        } else{
+            unswer = +unswer;
+            this.numberCheck(unswer);
+        }
     }
 
 }

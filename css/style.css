@@ -3,6 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* ::-webkit-scrollbar {
+    width: 3px;
+}  */
+/* ::-webkit-scrollbar-thumb {
+    background-color: red;
+    overflow: hidden;
+}   */
 
 .wrapper-app{
     display: flex;
@@ -10,19 +17,44 @@
     margin-top: 100px;
 }
 
+.app{
+}
+
+
 .app-screen{
-    padding: 5px;
+    height: inherit;
     height: 500px;
     width: 400px;
     border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end
+    overflow: auto;
+    padding: 6px 10px;
+
+
 }
+
+.comment{
+    width: fit-content;
+    max-width: 75%;
+    margin: 5px;
+    background-color: rgb(165, 87, 238);
+    border-radius: 10px;
+    padding: 4px 8px;
+    
+}
+.comment-guess{
+    margin-right: auto;
+    background-color: rgb(165, 87, 238);
+}
+.comment-unswer{
+    margin-left: auto;
+    background-color: rgb(119, 118, 118);
+}
+
 
 .bubble{
     font-size: 15px;
-    margin: 6px;
+    margin: 5px;
+
 }
 .bubble-left{
     text-align: left;
@@ -31,8 +63,10 @@
     text-align: right;
 }
 .bubble__text{
+    
+    word-wrap: break-word;
     border-radius: 10px;
-    padding: 3px 5px;
+    padding: 3px 7px;
 }
 .bubble__text-quess{
     background-color: rgb(165, 87, 238);
@@ -76,8 +110,8 @@
 }
 .app-menu__btn{
     border: none;
-    background-color: rgb(153, 153, 152);
-    border: 2px solid  rgb(153, 153, 152);
+    background-color: rgb(165, 87, 238);
+    border: 2px solid  rgb(165, 87, 238);
     border-radius: 10px;
     padding: 3px;
     cursor: pointer;
