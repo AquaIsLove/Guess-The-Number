@@ -42,21 +42,22 @@ export default class GuessNumber{
 
     getGuess(text){
         const block = document.createElement('div');
-        block.classList.add('bubble', 'bubble-left');
-        block.innerHTML = `<span class='bubble__text bubble__text-quess' id='bubble'>${text}</span> `
+        block.classList.add('bubble', 'bubble-guess');
+        block.innerHTML = text;
         this.screen.appendChild(block);
+        block.scrollIntoView();
     }
     getAnswer(text){
         const block = document.createElement('div');
-        block.classList.add('bubble', 'bubble-right');
-        block.innerHTML = `<span class='bubble__text bubble__text-answer'>${text}</span> `
+        block.classList.add('bubble', 'bubble-answer');
+        block.innerHTML =  text;
         this.screen.appendChild(block);
+        block.scrollIntoView();
     }
 
     lengthChenck(unswer){
         if (unswer.length > 2){
-            this.getAnswer(`${unswer}`);
-            this.getAnswer('0_0');
+            this.getAnswer('o_o');
             this.getGuess('Слишком длинное сообщение');
             this.getGuess('Для нашей игры');
             return false

@@ -3,13 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 3px;
-}  */
-/* ::-webkit-scrollbar-thumb {
-    background-color: red;
+} 
+::-webkit-scrollbar-thumb {
+    background-color: rgb(75, 78, 72);
     overflow: hidden;
-}   */
+    
+}  
 
 .wrapper-app{
     display: flex;
@@ -17,80 +18,45 @@
     margin-top: 100px;
 }
 
+
 .app{
 }
 
-
-.app-screen{
-    height: inherit;
+.wrapper-app-screen{
+    position: relative;
     height: 500px;
     width: 400px;
     border: 1px solid black;
-    overflow: auto;
-    padding: 6px 10px;
-
-
+    overflow-y: auto;
 }
 
-.comment{
+.app-screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: 100%;
+    padding: 5px 0 5px 0;        
+}
+
+.bubble{
     width: fit-content;
     max-width: 75%;
     margin: 5px;
     background-color: rgb(165, 87, 238);
     border-radius: 10px;
     padding: 4px 8px;
-    
 }
-.comment-guess{
+.bubble-guess{
     margin-right: auto;
     background-color: rgb(165, 87, 238);
 }
-.comment-unswer{
+.bubble-answer{
     margin-left: auto;
     background-color: rgb(119, 118, 118);
 }
 
 
-.bubble{
-    font-size: 15px;
-    margin: 5px;
-
-}
-.bubble-left{
-    text-align: left;
-}
-.bubble-right{
-    text-align: right;
-}
-.bubble__text{
-    
-    word-wrap: break-word;
-    border-radius: 10px;
-    padding: 3px 7px;
-}
-.bubble__text-quess{
-    background-color: rgb(165, 87, 238);
-
-}
-.bubble__text-answer{
-    background-color: rgb(143, 143, 143);
-
-}
-
-
-/* .message__bubble{
-    display: inline;
-    border-radius: 10px;
-    padding: 3px;
-    font-size: 15px;
-}
-.message__bubble-answer{
-    background-color: rgb(165, 87, 238);
-}
-.message__bubble-guess{
-    background-color: rgb(143, 143, 143);
-
-} */
 
 
 .app-menu{
